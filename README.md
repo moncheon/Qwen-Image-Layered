@@ -62,6 +62,11 @@ for i, image in enumerate(output_image):
     image.save(f"{i}.png")
 ```
 
+## Deploy Qwen-Image-Layered
+The following scripts will start a Gradio-based web interface where you can decompose an image and export the layers into a pptx file:
+```bash
+python src/app.py
+```
 
 ## Showcase
 ### Layered Decomposition in Application
