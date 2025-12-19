@@ -68,6 +68,10 @@ The following scripts will start a Gradio-based web interface where you can deco
 python src/app.py
 ```
 
+After decomposition, you may want to edit specific layers. The following scripts will launch a Gradio-based web interface where you can edit images with transparency using Qwen-Image-Edit.
+```bash
+python src/tool/edit_rgba_image.py
+```
 ## Showcase
 ### Layered Decomposition in Application
 Given an image, Qwen-Image-Layered can decompose it into several RGBA layers:
