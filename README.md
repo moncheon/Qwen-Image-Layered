@@ -1,7 +1,7 @@
 <p align="center">
     <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/layered/qwen-image-layered-logo.png" width="800"/>
 <p> 
-<p align="center">&nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image-Layered">HuggingFace</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image-Layered">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2512.15603">Research Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwenlm.github.io/blog/qwen-image-layered/">Blog</a> &nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/spaces/Qwen/Qwen-Image-Layered">Demo</a> &nbsp&nbsp 
+<p align="center">&nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image-Layered">HuggingFace</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image-Layered">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2512.15603">Research Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwen.ai/blog?id=qwen-image-layered">Blog</a> &nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/spaces/Qwen/Qwen-Image-Layered">Demo</a> &nbsp&nbsp 
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@ We are excited to introduce **Qwen-Image-Layered**, a model capable of decomposi
 
 ## News
 - 2025.12.19: We released Qwen-Image-Layered weights! Check at [Huggingface](https://huggingface.co/Qwen/Qwen-Image-Layered) and [ModelScope](https://modelscope.cn/models/Qwen/Qwen-Image-Layered)!
-- 2025.12.19: We released Qwen-Image-Layered! Check our [Blog](https://qwenlm.github.io/blog/qwen-image-layered) for more details!
+- 2025.12.19: We released Qwen-Image-Layered! Check our [Blog](https://qwen.ai/blog?id=qwen-image-layered) for more details!
 - 2025.12.18: We released our [Research Paper](https://arxiv.org/abs/2512.15603) on Arxiv!
 
 > [!NOTE]
