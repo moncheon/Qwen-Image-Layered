@@ -9,7 +9,7 @@ import numpy as np
 import random
 import tempfile
 import zipfile 
-
+from psd_tools import PSDImage
 MAX_SEED = np.iinfo(np.int32).max
 
 pipeline = QwenImageLayeredPipeline.from_pretrained("Qwen/Qwen-Image-Layered")
@@ -37,6 +37,23 @@ def imagelist_to_pptx(img_files):
 
     with tempfile.NamedTemporaryFile(suffix=".pptx", delete=False) as tmp:
         prs.save(tmp.name)
+        return tmp.name
+
+def imagelist_to_psd(img_files):
+    layers = []
+    for path in img_files:
+        layers.append(Image.open(path).convert('RGBA'))
+
+    width, height = layers[0].size
+    psd = PSDImage.new(mode='RGBA', size=(width, height))
+
+    for i, img in enumerate(layers):
+        name = f"Layer {i + 1}"
+        layer = psd.create_pixel_layer(image=img, name=name)
+        psd.append(layer)
+    
+    with tempfile.NamedTemporaryFile(suffix=".psd", delete=False) as tmp:
+        psd.save(tmp.name)
         return tmp.name
 
 def export_gallery(images):
@@ -108,7 +125,9 @@ def infer(input_image,
                 zipf.write(img_path, f"layer_{i+1}.png")
         zip_path = tmp.name
     
-    return output, pptx_path, zip_path
+    # Generate PSD
+    psd_path = imagelist_to_psd(temp_files)
+    return output, pptx_path, zip_path, psd_path
 
 examples = [
             "assets/test_images/1.png",
@@ -195,10 +214,11 @@ with gr.Blocks() as demo:
                 with gr.Row():
                     export_file = gr.File(label="Download PPTX")
                     export_zip_file = gr.File(label="Download ZIP")
+                    export_psd_file = gr.File(label="Download PSD")
 
     gr.Examples(examples=examples,
                 inputs=[input_image], 
-                outputs=[gallery, export_file, export_zip_file],
+                outputs=[gallery, export_file, export_zip_file, export_psd_file],
                 fn=infer, 
                 examples_per_page=14,
                 cache_examples=False,
@@ -219,7 +239,7 @@ with gr.Blocks() as demo:
             cfg_norm,
             use_en_prompt,
         ], 
-        outputs=[gallery, export_file, export_zip_file],
+        outputs=[gallery, export_file, export_zip_file, export_psd_file],
     )
 
 demo.launch(
