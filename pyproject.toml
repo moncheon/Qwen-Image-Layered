@@ -1,0 +1,64 @@
+[project]
+name = "qwen-image-layered"
+version = "1.0.0"
+description = "Qwen Image Layered - Image layer decomposition using AI"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    # Diffusers (git version required)
+    "diffusers @ git+https://github.com/huggingface/diffusers.git",
+
+    # Core
+    "transformers>=4.51.3",
+    "accelerate>=1.12.0",
+    "safetensors>=0.7.0",
+    "huggingface-hub>=0.36.0",
+
+    # Quantization
+    "bitsandbytes>=0.49.0",
+
+    # UI
+    "gradio>=6.0.0",
+
+    # Export formats
+    "python-pptx>=1.0.0",
+    "psd-tools>=1.12.0",
+    "Pillow>=10.0.0",
+
+    # Utils
+    "numpy>=1.26.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+# Windows attention optimization
+windows = [
+    "triton-windows>=3.2.0",
+]
+
+[tool.uv]
+# PyTorch CUDA 12.4
+extra-index-url = ["https://download.pytorch.org/whl/cu124"]
+
+[tool.uv.sources]
+# Override torch packages to use CUDA 12.4 versions
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
+xformers = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.pip]
+# Additional packages not in PyPI
+torch = "torch==2.6.0+cu124"
+torchvision = "torchvision==0.21.0+cu124"
+xformers = "xformers>=0.0.29"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

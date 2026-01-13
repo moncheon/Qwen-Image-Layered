@@ -1,12 +1,30 @@
 <p align="center">
     <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/layered/qwen-image-layered-logo.png" width="800"/>
-<p> 
-<p align="center">&nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image-Layered">HuggingFace</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image-Layered">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2512.15603">Research Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwen.ai/blog?id=qwen-image-layered">Blog</a> &nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/spaces/Qwen/Qwen-Image-Layered">Demo</a> &nbsp&nbsp 
+<p>
+<p align="center">&nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image-Layered">HuggingFace</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image-Layered">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2512.15603">Research Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwen.ai/blog?id=qwen-image-layered">Blog</a> &nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/spaces/Qwen/Qwen-Image-Layered">Demo</a> &nbsp&nbsp
 </p>
 
 <p align="center">
     <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/layered/layered.JPG" width="1024"/>
 <p>
+
+## Setting - Important
+
+> **모델을 먼저 다운로드하세요!**
+> 앱 실행 전에 반드시 별도의 터미널 창에서 아래 명령어를 실행하여 모델을 미리 다운로드해야 합니다.
+> 모델 크기가 약 **54GB**이므로 충분한 디스크 공간과 시간이 필요합니다.
+
+```bash
+huggingface-cli download Qwen/Qwen-Image-Layered --local-dir ./models/Qwen-Image-Layered
+```
+
+| 항목 | 내용 |
+|------|------|
+| 모델 크기 | ~54GB |
+| 저장 경로 | `./models/Qwen-Image-Layered` |
+| 필요 VRAM | 24GB (RTX 4090 권장) |
+
+---
 
 ## Introduction
 We are excited to introduce **Qwen-Image-Layered**, a model capable of decomposing an image into multiple RGBA layers. This layered representation unlocks **inherent editability**: each layer can be independently manipulated without affecting other content. Meanwhile, such a layered representation naturally supports **high-fidelity elementary operations**-such as resizing, reposition, and recoloring. By physically isolating semantic or structural components into distinct layers, our approach enables high-fidelity and consistent editing.
